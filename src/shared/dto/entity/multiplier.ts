@@ -3,12 +3,12 @@ import { Game } from './game';
 import { BaseEntity } from './base-entity';
 
 @Entity()
-export class Multiplier extends BaseEntity{
+export class Multiplier extends BaseEntity {
   @ManyToOne(() => Game)
   game!: Game;
 
-  @Property({type: 'bigint'})
-  multiplier!: bigint
+  @Property({ type: 'bigint' })
+  multiplier!: bigint;
 
   @Property()
   multipliedAt!: Date;

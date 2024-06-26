@@ -17,7 +17,6 @@ export class Game extends BaseEntity {
   @Property()
   endTime?: Date;
 
-  @Property({type: 'bigint'})
+  @Property({ type: 'bigint' })
   finalMultiplier?: bigint;
 }
-

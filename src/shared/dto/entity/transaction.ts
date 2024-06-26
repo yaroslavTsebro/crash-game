@@ -1,18 +1,7 @@
 import { Property, Enum, ManyToOne, Entity } from '@mikro-orm/core';
 import { BaseEntity } from './base-entity';
 import { User } from './user';
-
-export enum TransactionStatus {
-  ERROR,
-  SUCCESS,
-  IN_PROGRESS,
-  CANCELED
-}
-
-export enum TransactionType {
-  INCOMING,
-  OUTGOING,
-}
+import { TransactionStatus, TransactionType } from '../../contracts/entity/transaction';
 
 @Entity()
 export class Transaction extends BaseEntity {
