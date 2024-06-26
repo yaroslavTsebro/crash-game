@@ -1,9 +1,9 @@
-import { MikroORM } from '@mikro-orm/core';
+import { EntityManager, MikroORM } from '@mikro-orm/core';
 import config from '../utils/config/db';
 import logger from '../utils/logger';
 
-let orm;
-let em;
+let orm: MikroORM | undefined;
+let em: EntityManager | undefined;
 
 export async function initOrm() {
   try {

@@ -1,8 +1,8 @@
-import { User } from '../../shared/dto/entity/user';
-import { Game } from '../../shared/dto/entity/game';
-import { Bet } from '../../shared/dto/entity/bet';
-import { Multiplier } from '../../shared/dto/entity/multiplier';
-import { Transaction } from '../../shared/dto/entity/transaction';
+import { User } from '../../shared/model/entity/user';
+import { Game } from '../../shared/model/entity/game';
+import { Bet } from '../../shared/model/entity/bet';
+import { Multiplier } from '../../shared/model/entity/multiplier';
+import { Transaction } from '../../shared/model/entity/transaction';
 import { Options } from '@mikro-orm/postgresql';
 import appConfig from './app';
 

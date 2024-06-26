@@ -27,6 +27,15 @@ class AppConfig {
   @IsNumber()
   APP_PORT!: number;
 
+  @IsNumber()
+  JWT_REFRESH_AGE!: number;
+
+  @IsString()
+  JWT_ACCESS_SECRET!: string;
+
+  @IsString()
+  JWT_REFRESH_SECRET!: string;
+
   constructor() {
     const env = process.env;
     this.DB_HOST = env.DB_HOST!;
@@ -34,8 +43,11 @@ class AppConfig {
     this.DB_NAME = env.DB_NAME!;
     this.DB_USER = env.DB_USER!;
     this.DB_PASSWORD = env.DB_PASSWORD;
+    this.JWT_ACCESS_SECRET = env.JWT_ACCESS_SECRET!;
+    this.JWT_REFRESH_SECRET = env.JWT_REFRESH_SECRET!;
     this.DB_DEBUG = !!env.DB_DEBUG;
     this.APP_PORT = Number(env.APP_PORT);
+    this.JWT_REFRESH_AGE = Number(env.JWT_REFRESH_AGE);
   }
 
   static async validate(config: AppConfig) {
