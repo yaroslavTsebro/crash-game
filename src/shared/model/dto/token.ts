@@ -1,4 +1,4 @@
-import { UserState, UserStatus } from '../../contracts/entity/user';
+import { UserState, UserStatus } from '../entity/user';
 
 export class TokenDto {
   id: string;

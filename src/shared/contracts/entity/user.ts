@@ -1,7 +1,7 @@
 import { Collection } from '@mikro-orm/core';
 import { IBet } from './bet';
-import { ITransaction } from './transaction';
 import { IBaseEntity } from './base-entity';
+import { ITransaction } from './transaction';
 
 export enum UserStatus{
   VIP,

@@ -1,9 +1,11 @@
-import { BaseEntity, Entity, ManyToOne, Property } from '@mikro-orm/core';
+import { Entity, ManyToOne, Property } from '@mikro-orm/core';
 import { User } from './user';
 import { Game } from './game';
+import { BaseEntity } from './base-entity';
+import { IBet } from '../../contracts/entity/bet';
 
 @Entity()
-export class Bet extends BaseEntity {
+export class Bet extends BaseEntity implements IBet {
   @ManyToOne(() => Game)
   game!: Game;
 

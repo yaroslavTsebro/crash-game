@@ -1,4 +1,4 @@
-import { IsEmail, IsOptional, IsPositive, IsString } from 'class-validator';
+import { IsOptional, IsPositive, IsString } from 'class-validator';
 
 export class UserLoginDto {
   @IsString()

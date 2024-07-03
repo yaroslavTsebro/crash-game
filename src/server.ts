@@ -6,6 +6,8 @@ import appConfig from './utils/config/app';
 import logger from './utils/logger';
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import router from './route';
+import { errorHandlerMiddleware } from './middleware/error-handling';
 
 export class Server {
   private PORT: number = appConfig.APP_PORT;
@@ -33,7 +35,12 @@ export class Server {
     this.app.use(errorHandlerMiddleware);
   }
 
+  private async connectToDb(){
+    await initOrm();
+  }
+
   public async start() {
+    await this.connectToDb();
     this.httpServer.listen(this.PORT, () => {
       logger.info(`Server is working on ${this.PORT}`);
     });

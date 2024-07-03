@@ -1,10 +1,10 @@
 import { Property, Enum, ManyToOne, Entity } from '@mikro-orm/core';
 import { BaseEntity } from './base-entity';
 import { User } from './user';
-import { TransactionStatus, TransactionType } from '../../contracts/entity/transaction';
+import { ITransaction, TransactionStatus, TransactionType } from '../../contracts/entity/transaction';
 
 @Entity()
-export class Transaction extends BaseEntity {
+export class Transaction extends BaseEntity implements ITransaction {
   @Property({ type: 'character varying', unique: true, length: 25 })
   username!: string;
 

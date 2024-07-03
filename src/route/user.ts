@@ -1,4 +1,6 @@
 import express from 'express';
+import userController from "../controller/user"
+import { authorizationMiddleware } from '../middleware/authorization';
 
 let router = express.Router();
 

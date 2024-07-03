@@ -36,6 +36,12 @@ class AppConfig {
   @IsString()
   JWT_REFRESH_SECRET!: string;
 
+  @IsString()
+  GAMBLING_SALT!: string;
+
+  @IsString()
+  FIRST_HASH!: string;
+
   constructor() {
     const env = process.env;
     this.DB_HOST = env.DB_HOST!;
@@ -48,6 +54,8 @@ class AppConfig {
     this.DB_DEBUG = !!env.DB_DEBUG;
     this.APP_PORT = Number(env.APP_PORT);
     this.JWT_REFRESH_AGE = Number(env.JWT_REFRESH_AGE);
+    this.GAMBLING_SALT = env.GAMBLING_SALT!;
+    this.FIRST_HASH = env.FIRST_HASH!;
   }
 
   static async validate(config: AppConfig) {
