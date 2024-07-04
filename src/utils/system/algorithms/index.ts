@@ -49,15 +49,22 @@ export class CrashGame {
     const h = hash.substring(0, 13);
     const hBigInt = this.hexToBigInt(h);
 
-    if (this.isDivisible(h, 21)) return { crash: 1.00, hash }
+    if (this.isDivisible(h, 21)) return { crash: 1.00, hash };
 
-    const numerator = BigInt(100) * (BigInt(100) * e - hBigInt);
+    const numerator = BigInt(100) * (e * BigInt(100) - hBigInt);
     const denominator = e - hBigInt;
     const crashBigInt = numerator / denominator;
-    const crash = Number((Number(crashBigInt) / 10000).toFixed(2));
+    let crash = Number(crashBigInt) / 10000;
 
-    return { crash, hash } as GeneratedCrashGame;
+    if (crash > 200) { crash = 200 + Math.log(crash - 200); }
+
+    if (crash > 50 && Math.random() > 0.5) { crash /= 2; }
+
+    const crashFormatted = Number(crash.toFixed(2));
+    return { crash: crashFormatted, hash };
   }
+
+
 }
 
 
