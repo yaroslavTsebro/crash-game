@@ -104,8 +104,8 @@ export class CrashGame {
   }
 
   private generateNormalCrash(): number {
-    const mean = 20;
-    const stdDev = 10;
+    const mean = 2;
+    const stdDev = 1;
     let u1 = 0, u2 = 0;
     while (u1 === 0) u1 = Math.random();
     while (u2 === 0) u2 = Math.random();
@@ -115,7 +115,8 @@ export class CrashGame {
 
   private generateExponentialCrash(): number {
     const lambda = 1 / 20;
-    return -Math.log(1 - Math.random()) / lambda;
+    const expValue = -Math.log(1 - Math.random()) / lambda;
+    return Math.min(expValue, 100);
   }
 
   private generateLogNormalCrash(): number {
